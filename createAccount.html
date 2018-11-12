@@ -60,19 +60,26 @@
 		</div>
 
 		<div>
-			<a href="createAccount.html">Create Account</a>
+			<span>Password Again:</span>
+			<input type="password" id="password-in-again">
 		</div>
 
 		<div>
-			<center><button id="sign-in-user">Log In</button></center>
+			<center><button id="register-user">Register</button></center>
 		</div>
 	</div>
 	<script>
-		$("#sign-in-user").click(function() {
+		$("#register-user").click(function() {
 			let username = $("#username-in").val();
 			let password = $("#password-in").val();
-			console.log("Signing In: " + username + ":" + password + " to Firebase");
-			signInUser(username, password);
+			let password2 = $("#password-in-again").val();
+			if (password === password2) {
+				console.log("Registering: " + username + ":" + password + " to Firebase");
+				registerUser(username, password);
+			} else {
+				alert("Passwords do not match: " + password + " and " + password2);
+				console.log("Passwords do not match: " + password + " and " + password2);
+			}
 		});
 	</script>
 	

@@ -17,3 +17,20 @@ let registerUser = function(email, password) {
 
 	ansFromCreate.then(successFunction, errorFunction);
 };
+
+let signInUser = function(email, password) {
+	firebase.auth().signInWithEmailAndPassword(email, password).then(function(successObject) {
+		alert("Logged in Successfully, Welcome Back " + firebase.auth().currentUser.email);
+	}, function(failObject) {
+		alert("Couldn't log in: " + failObject.message);
+	})
+};
+
+let signOut = function() {
+	firebase.auth().signOut();
+};
+
+
+let amISignedIn = function() {
+	return (firebase.auth().currentUser !== null);
+};
