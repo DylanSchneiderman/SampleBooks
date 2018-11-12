@@ -1,0 +1,87 @@
+<html>
+<head>
+	<title>Sample Books</title>
+	<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"> </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<script>
+	  	// Initialize Firebase
+		var config = {
+	    	apiKey: "AIzaSyDc9WTKgIR2JuCjImXfmMqlUcQgtLsxuok",
+	    	authDomain: "samplebooks-a7207.firebaseapp.com",
+	    	databaseURL: "https://samplebooks-a7207.firebaseio.com",
+	    	projectId: "samplebooks-a7207",
+	    	storageBucket: "samplebooks-a7207.appspot.com",
+	    	messagingSenderId: "454620845401"
+		};
+		firebase.initializeApp(config);
+	</script>
+	<script src="auth_sample.js"></script>
+	<style>
+		#div1{
+			width:600px;
+			height:600px;
+			border: 10px solid black;
+			margin:0 auto;
+			position:realtive;
+
+		}
+		span{
+			font-size: 2em;
+			margin:0 auto;
+
+		}
+		#password-in{
+
+		}
+		#username-in{
+
+		}
+		#password-in-again{
+			
+		}
+		#register-user{
+			width:150px;
+			height:50px;
+			margin: 0 px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id ="div1" align="center">
+		<div>
+			<span>Email:</span>
+			<input type="text" id="username-in">
+		</div>
+
+		<div>
+			<span>Password:</span>
+			<input type="password" id="password-in">
+		</div>
+
+		<div>
+			<span>Password Again:</span>
+			<input type="password" id="password-in-again">
+		</div>
+
+		<div>
+			<center><button id="register-user">Register</button></center>
+		</div>
+	</div>
+	<script>
+		$("#register-user").click(function() {
+			let username = $("#username-in").val();
+			let password = $("#password-in").val();
+			let password2 = $("#password-in-again").val();
+			if (password === password2) {
+				console.log("Registering: " + username + ":" + password + " to Firebase");
+				registerUser(username, password);
+			} else {
+				alert("Passwords do not match: " + password + " and " + password2);
+				console.log("Passwords do not match: " + password + " and " + password2);
+			}
+		});
+	</script>
+	
+</body>
+</html>
